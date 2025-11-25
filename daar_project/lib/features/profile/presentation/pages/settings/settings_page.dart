@@ -2,7 +2,8 @@ import 'package:daar_project/features/profile/presentation/pages/settings/widget
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:daar_project/features/profile/presentation/cubit/settings_cubit.dart';
 
 import '../../../../../init_dependencies.dart';
 
@@ -14,28 +15,22 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  String selectedCurrency = "EUR"; // default iniziale
-  final supabase = serviceLocator<SupabaseClient>();
+  late SettingsCubit _settingsCubit;
 
   @override
   void initState() {
     super.initState();
-    _loadCurrency();
+    _initializeCubit();
   }
 
-  Future<void> _loadCurrency() async {
-    final user = supabase.auth.currentUser;
-    if (user == null) return;
+  void _initializeCubit() {
+    _settingsCubit = serviceLocator<SettingsCubit>()..loadSettings();
+  }
 
-    final response = await supabase
-        .from('user_settings')
-        .select('currency')
-        .eq('user_id', user.id)
-        .maybeSingle(); // response è PostgrestMap? ora
-
-    setState(() {
-      selectedCurrency = response?['currency'] ?? 'EUR';
-    });
+  @override
+  void dispose() {
+    _settingsCubit.close();
+    super.dispose();
   }
 
   @override
@@ -45,35 +40,56 @@ class _SettingsPageState extends State<SettingsPage> {
         title: Text('settings'.tr()),
         centerTitle: true,
       ),
-      body: Column(
+      body: BlocBuilder<SettingsCubit, SettingsState>(
+        bloc: _settingsCubit,
+        builder: (context, state) {
+          return _buildContent(state);
+        },
+      ),
+    );
+  }
+
+  Widget _buildContent(SettingsState state) {
+    // Gestione stati simile alla logica precedente
+    if (state is SettingsLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    if (state is SettingsError) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Error: ${state.message}'),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _settingsCubit.loadSettings,
+              child: Text('Retry'),
+            ),
+          ],
+        ),
+      );
+    }
+
+    if (state is SettingsLoaded) {
+      return Column(
         children: [
           buildSettingsOption(
             context: context,
             text: "currency",
-            trailingText: selectedCurrency,
+            trailingText: state.settings.currency,
             onTap: () {
-              final user = supabase.auth.currentUser;
-              if (user == null) return;
-
-              showCurrencyPicker(context, ["USD", "EUR", "GBP", "LD"], (currency) async {
-                // Aggiorna lo stato locale
-                setState(() {
-                  selectedCurrency = currency;
-                });
-
-                // Salva su Supabase nella tabella user_settings
-                final response = await supabase.from('user_settings').update({
-                  'currency': currency,
-                }).eq('user_id', user.id);
-
-                if (response.error != null) {
-                  debugPrint("Errore: ${response.error!.message}");
-                }
+              showCurrencyPicker(context, ["USD", "EUR", "GBP", "LD"], (currency) {
+                // Usa il Cubit invece di Supabase diretto
+                _settingsCubit.updateCurrency(currency);
               });
             },
           ),
         ],
-      ),
-    );
+      );
+    }
+
+    // Stato iniziale - carica i settings
+    return const Center(child: CircularProgressIndicator());
   }
 }

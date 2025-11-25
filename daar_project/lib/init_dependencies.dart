@@ -26,6 +26,8 @@ Future<void> initDependencies() async {
 
   // 2️⃣ Inizializza Auth (RemoteDataSource, Repository, UseCases, Bloc)
   _initAuth();
+
+  _initSettings();
 }
 
 void _initAuth() {
@@ -56,7 +58,7 @@ void _initAuth() {
 
 void _initSettings() {
   // Remote Data Source
-  
+
 
   // Repository
   serviceLocator.registerLazySingleton<SettingsRepository>(

@@ -10,7 +10,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
   @override
   Future<Settings> getSettings(String userId) async {
     final response = await supabase
-        .from('user_setings')
+        .from('user_settings')
         .select()
         .eq('user_id', userId)
         .maybeSingle();
@@ -42,8 +42,6 @@ class SettingsRepositoryImpl implements SettingsRepository {
           'user_id' : settings.userId,
           'currency' : settings.currency,
           'updated_at': settings.updatedAt.toIso8601String(),
-        })
-        .select()
-        .single();
+        });
   }
 }
