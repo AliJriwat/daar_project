@@ -1,0 +1,30 @@
+{
+  "login": "تسجيل الدخول",
+  "signup": "إنشاء حساب",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "home": "الرئيسية",
+  "favorites": "المفضلة",
+  "messages": "الرسائل",
+  "profile": "الملف الشخصي",
+
+  "preferences": "التفضيلات",
+  "edit_profile": "تعديل الملف الشخصي",
+  "my_addresses": "عناويني",
+  "partner_mode": "وضع الشريك",
+
+  "settings2": "الإعدادات",
+  "settings": "الإعدادات",
+  "language": "اللغة",
+  "dark_mode": "الوضع الداكن",
+
+  "support": "الدعم",
+  "about": "حول",
+  "help_center": "مركز المساعدة",
+
+  "logout" : "تسجيل الخروج",
+
+  "daar" : "Daar - Versione Beta 1.0",
+
+  "daar_about_text" : "Daar is an innovative project that aims to make people's lives easier through an intuitive and modern system. Our mission is to create a simple, fast, and accessible digital environment for everyone."
+}

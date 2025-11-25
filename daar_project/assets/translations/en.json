@@ -1,0 +1,30 @@
+{
+  "login": "Login",
+  "signup": "Sign Up",
+  "email": "Email",
+  "password": "Password",
+  "home": "Home",
+  "favorites": "Favorites",
+  "messages": "Messages",
+  "profile": "Profile",
+
+  "preferences": "Preferences",
+  "edit_profile": "Edit Profile",
+  "my_addresses": "My Addresses",
+  "partner_mode": "Partner Mode",
+
+  "settings2": "Settings",
+  "settings": "Settings",
+  "language": "Language",
+  "dark_mode": "Dark Mode",
+
+  "support": "Support",
+  "about": "About",
+  "help_center": "Help Center",
+
+  "logout": "Log Out",
+
+  "daar" : "Daar - Versione Beta 1.0",
+
+  "daar_about_text" : "Daar is an innovative project that aims to make people's lives easier through an intuitive and modern system. Our mission is to create a simple, fast, and accessible digital environment for everyone."
+}
