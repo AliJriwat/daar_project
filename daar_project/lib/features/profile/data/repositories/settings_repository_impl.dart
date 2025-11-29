@@ -48,12 +48,18 @@ class SettingsRepositoryImpl implements SettingsRepository {
 
   @override
   Future<void> updateSettings(Settings settings) async {
-    await supabase
+    debugPrint('🔄 updateSettings chiamato per user: ${settings.userId}');
+
+    final response = await supabase
         .from('user_settings')
         .upsert({
-          'user_id' : settings.userId,
-          'currency' : settings.currency,
-          'updated_at': settings.updatedAt.toIso8601String(),
-        });
+      'user_id': settings.userId,
+      'currency': settings.currency,
+      'updated_at': settings.updatedAt.toIso8601String(),
+    })
+        .select();  // 🆕 Aggiungi .select() per vedere cosa ritorna
+
+    debugPrint('✅ Upsert response: ${response.length} righe');
+    debugPrint('📊 Dati: ${response}');
   }
 }

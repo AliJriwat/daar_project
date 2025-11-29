@@ -1,4 +1,6 @@
 import 'package:daar_project/features/profile/presentation/pages/about/about_page.dart';
+import 'package:daar_project/features/profile/presentation/pages/addresses/add_address_page.dart';
+import 'package:daar_project/features/profile/presentation/pages/addresses/addresses_page.dart';
 import 'package:daar_project/features/profile/presentation/pages/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import '../../features/profile/presentation/pages/edit_profile/edit_profile_page.dart';
@@ -13,6 +15,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const AboutPage());
       case RouteNames.settings:
         return MaterialPageRoute(builder: (_) => const SettingsPage());
+      case RouteNames.myAddresses:
+        return MaterialPageRoute(builder: (_) => const AddressesPage());
+      case RouteNames.addAddress:
+        return MaterialPageRoute(builder: (_) => const AddAddressPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

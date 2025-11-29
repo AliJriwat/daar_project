@@ -182,7 +182,9 @@ class ProfilePage extends StatelessWidget {
                             context: context,
                             icon: Icons.location_on,
                             text: "my_addresses".tr(),
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, RouteNames.myAddresses);
+                            },
                           ),
                           buildProfileOption(
                               context: context,
