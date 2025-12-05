@@ -1,0 +1,69 @@
+{
+  "login": "Login",
+  "signup": "Sign Up",
+  "email": "Email",
+  "password": "Password",
+  "home": "Home",
+  "favorites": "Favorites",
+  "messages": "Messages",
+  "profile": "Profile",
+
+  "preferences": "Preferences",
+  "edit_profile": "Edit Profile",
+  "my_addresses": "My Addresses",
+  "partner_mode": "Partner Mode",
+
+  "settings2": "Settings",
+  "settings": "Settings",
+  "language": "Language",
+  "dark_mode": "Dark Mode",
+
+  "support": "Support",
+  "about": "About",
+  "help_center": "Help Center",
+
+  "logout": "Log Out",
+
+  "daar" : "Daar - Versione Beta 1.0",
+
+  "daar_about_text" : "Daar is an innovative project that aims to make people's lives easier through an intuitive and modern system. Our mission is to create a simple, fast, and accessible digital environment for everyone.",
+
+  "add_vacation_home": "Add Your Vacation Home",
+  "vacation_home_welcome_description": "Complete all steps to publish your home. Our team will review it before publication.",
+  "start": "Start",
+  "basic_info": "Basic Information",
+  "title": "Title",
+  "description": "Description",
+  "next": "Next",
+  "vacation_home_title_hint": "e.g., Seaside Villa with Pool",
+  "vacation_home_description_hint": "Describe your vacation home...",
+  "house_details": "House Details",
+  "max_guests": "Maximum Guests",
+  "bedrooms": "Bedrooms",
+  "beds": "Beds",
+  "bathrooms": "Bathrooms",
+  "back": "Back",
+
+
+  "services": "Services",
+  "select_services": "Select the services available in your vacation home",
+  "photos": "Photos",
+  "add_photos": "Add Photos",
+  "price": "Price",
+  "price_per_night": "Price per Night",
+  "summary": "Summary",
+  "confirmation": "Confirmation",
+
+  "pool": "Pool",
+  "wifi": "Wi-Fi",
+  "parking": "Parking",
+  "air_conditioning": "Air Conditioning",
+  "pet_friendly": "Pet Friendly",
+  "barbecue": "Barbecue",
+  "sea_access": "Sea Access",
+  "outdoor_shower": "Outdoor Shower",
+  "spa": "Spa",
+  "tv": "TV",
+  "sports_equipment": "Sports Equipment",
+  "outdoor_kitchen": "Outdoor Kitchen"
+}
